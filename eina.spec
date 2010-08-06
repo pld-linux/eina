@@ -14,7 +14,6 @@
 %undefine	with_altivec
 %endif
 
-%define _snapdate 2010-06-27
 Summary:	Data types library (List, hash, etc)
 Summary(pl.UTF-8):	Bilblioteka typów danych (Lista, hasz, itd.)
 Name:		eina
@@ -22,7 +21,7 @@ Version:	0.9.9.49898
 Release:	1
 License:	LGPL v2.1
 Group:		Libraries
-Source0:	http://download.enlightenment.org/snapshots/%{_snapdate}/%{name}-%{version}.tar.bz2
+Source0:	http://download.enlightenment.org/snapshots/LATEST/%{name}-%{version}.tar.bz2
 # Source0-md5:	d14bacce7d588524c12ddad1db9c7240
 URL:		http://enlightenment.org/p.php?p=about/libs/eina
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
