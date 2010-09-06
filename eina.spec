@@ -1,3 +1,4 @@
+#
 # Conditional build:
 %bcond_without	mmx		# without MMX and MMX2
 %bcond_without	sse		# without SSE
@@ -14,27 +15,29 @@
 %undefine	with_altivec
 %endif
 
-Summary:	Data types library (List, hash, etc)
-Summary(pl.UTF-8):	Bilblioteka typów danych (Lista, hasz, itd.)
+Summary:	Data types library (list, hash, etc.)
+Summary(pl.UTF-8):	Bilblioteka struktur danych (lista, hasz, itp.)
 Name:		eina
-Version:	0.9.9.49898
-Release:	1
+%define	subver	alpha
+Version:	1.0.0
+Release:	0.%{subver}.1
 License:	LGPL v2.1
 Group:		Libraries
-Source0:	http://download.enlightenment.org/snapshots/LATEST/%{name}-%{version}.tar.bz2
-# Source0-md5:	d14bacce7d588524c12ddad1db9c7240
-URL:		http://enlightenment.org/p.php?p=about/libs/eina
+Source0:	http://download.enlightenment.org/releases/%{name}-%{version}-%{subver}.tar.bz2
+# Source0-md5:	d417ca58a3b919257b23e5bdd57dfe1b
+URL:		http://trac.enlightenment.org/e/wiki/Eina
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Data types library (List, hash, etc)
+Data types library (list, hash, etc.)
 
 %description -l pl.UTF-8
-Bilblioteka typów danych(Lista, hasz, itd.)
+Bilblioteka struktur danych (lista, hasz, itp.).
 
 %package devel
 Summary:	Eina header files
-Summary(pl.UTF-8):	Pliki nagłówkowe Einy
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Eina
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -42,7 +45,7 @@ Requires:	%{name} = %{version}-%{release}
 Header files for Eina.
 
 %description devel -l pl.UTF-8
-Pliki nagłówkowe Eina.
+Pliki nagłówkowe biblioteki Eina.
 
 %package static
 Summary:	Static Eina library
@@ -57,17 +60,11 @@ Static Eina library.
 Statyczna biblioteka Eina.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-%{subver}
 
 %build
-rm -rf autom4te.cache
-rm -f aclocal.m4 ltmain.sh
-%{__libtoolize}
-%{__aclocal} -I m4
-%{__autoconf}
-%{__autoheader}
-%{__automake}
 %configure \
+	--disable-silent-rules \
 	%{?with_static_libs:--enable-static} \
 %if %{with mmx}
 	--enable-cpu-mmx	\
@@ -101,16 +98,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS
-%attr(755,root,root) %{_libdir}/libeina-ver-svn-06.so.0.9.9
-%attr(755,root,root) %ghost %{_libdir}/libeina-ver-svn-06.so.0
+%doc AUTHORS README
+%attr(755,root,root) %{_libdir}/libeina.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libeina.so.1
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/eina-0
+%attr(755,root,root) %{_libdir}/libeina.so
 %{_libdir}/libeina.la
-%{_libdir}/libeina.so
-%{_pkgconfigdir}/eina-0.pc
+%{_includedir}/eina-1
+%{_pkgconfigdir}/eina.pc
 
 %if %{with static_libs}
 %files static
