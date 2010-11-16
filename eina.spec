@@ -18,13 +18,13 @@
 Summary:	Data types library (list, hash, etc.)
 Summary(pl.UTF-8):	Bilblioteka struktur danych (lista, hasz, itp.)
 Name:		eina
-%define	subver	alpha
+%define	subver	beta2
 Version:	1.0.0
 Release:	0.%{subver}.1
 License:	LGPL v2.1
 Group:		Libraries
-Source0:	http://download.enlightenment.org/releases/%{name}-%{version}-%{subver}.tar.bz2
-# Source0-md5:	d417ca58a3b919257b23e5bdd57dfe1b
+Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.%{subver}.tar.bz2
+# Source0-md5:	b83de59ed0b2263378c3dc5f22ccfe62
 URL:		http://trac.enlightenment.org/e/wiki/Eina
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -60,7 +60,7 @@ Static Eina library.
 Statyczna biblioteka Eina.
 
 %prep
-%setup -q -n %{name}-%{version}-%{subver}
+%setup -q -n %{name}-%{version}.%{subver}
 
 %build
 %configure \
