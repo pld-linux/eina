@@ -16,7 +16,7 @@
 %endif
 
 Summary:	Data types library (list, hash, etc.)
-Summary(pl.UTF-8):	Bilblioteka struktur danych (lista, hasz, itp.)
+Summary(pl.UTF-8):	Biblioteka struktur danych (lista, hasz, itp.)
 Name:		eina
 %define	subver	beta2
 Version:	1.0.0
