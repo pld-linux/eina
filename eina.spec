@@ -18,13 +18,13 @@
 Summary:	Data types library (list, hash, etc.)
 Summary(pl.UTF-8):	Biblioteka struktur danych (lista, hasz, itp.)
 Name:		eina
-%define	subver	beta2
+%define	subver	beta3
 Version:	1.0.0
 Release:	0.%{subver}.1
 License:	LGPL v2.1
 Group:		Libraries
 Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.%{subver}.tar.bz2
-# Source0-md5:	b83de59ed0b2263378c3dc5f22ccfe62
+# Source0-md5:	004454c013e53ad97aab72c22328da40
 URL:		http://trac.enlightenment.org/e/wiki/Eina
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -66,23 +66,11 @@ Statyczna biblioteka Eina.
 %configure \
 	--disable-silent-rules \
 	%{?with_static_libs:--enable-static} \
-%if %{with mmx}
-	--enable-cpu-mmx	\
-%else
-	--disable-cpu-mmx	\
-%endif
-%if %{with sse}
-	--enable-cpu-sse	\
-%else
-	--disable-cpu-sse	\
-%endif
-%if %{with altivec}
-	--enable-cpu-altivec	\
-%else
-	--disable-cpu-altivec	\
-%endif
+	--enable-cpu-mmx%{!?with_mmx:=no} \
+	--enable-cpu-sse%{!?with_sse:=no} \
+	--enable-cpu-altivec%{!?with_altives:=no} 
 
-%{__make} V=1
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
