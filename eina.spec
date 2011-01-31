@@ -20,7 +20,7 @@ Summary(pl.UTF-8):	Biblioteka struktur danych (lista, hasz, itp.)
 Name:		eina
 Version:	1.0.0
 Release:	1
-License:	LGPL v2.1
+License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.bz2
 # Source0-md5:	036243f1f8cf2e725a326d45603417a3
@@ -85,7 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS README
+%doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_libdir}/libeina.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libeina.so.1
 
