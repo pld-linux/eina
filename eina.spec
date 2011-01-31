@@ -67,7 +67,7 @@ Statyczna biblioteka Eina.
 	%{?with_static_libs:--enable-static} \
 	--enable-cpu-mmx%{!?with_mmx:=no} \
 	--enable-cpu-sse%{!?with_sse:=no} \
-	--enable-cpu-altivec%{!?with_altives:=no}
+	--enable-cpu-altivec%{!?with_altivec:=no}
 
 %{__make}
 
