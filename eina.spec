@@ -22,12 +22,12 @@
 Summary:	Data types library (list, hash, etc.)
 Summary(pl.UTF-8):	Biblioteka struktur danych (lista, hasz, itp.)
 Name:		eina
-Version:	1.7.1
+Version:	1.7.2
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.bz2
-# Source0-md5:	552c5e9042d9cb3dbdebbc0e211ef30b
+# Source0-md5:	feb59bcd38582af342057f8283e99b75
 URL:		http://trac.enlightenment.org/e/wiki/Eina
 BuildRequires:	pkgconfig >= 1:0.22
 # ememoa-devel >= 0.0.26
